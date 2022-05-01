@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href="https://fonts.googleapis.com/css?family=Pathway+Gothic+One&amp;ver=1.0" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+		
+		
+		
+		<link href="assets/prism.css" rel="stylesheet">
+		<script src="assets/prism.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		
+		<meta charset='utf-8'/>
+		<title>ajaxfields demo</title>
+		<style>
+			*{
+				font-family: Roboto;
+			}
+			.logo {
+				font-size: 148px;
+			}
+			.font-pathway {
+				font-family: 'Pathway Gothic One', sans-serif;
+			}
+			.main .footer {
+			  background: #272822;
+			  color: #BBB;
+			  flex-grow: 0;
+			  max-height: 8rem;
+			  padding: 1rem 0;
+			  margin-top: 2rem;
+			}
+			
+			.main .header {
+				padding-bottom: 2rem;
+				flex-grow: 0; 
+			}
+			body, html {
+			  height: 100%;
+			}
+			.main {
+				display: flex;
+				flex-direction: column;
+				height: 100%;
+				font-size: 1.125rem;
+				
+			}
+			.main > * {
+			  flex: 1 1 auto;
+			}
+			
+			.field_wrap > * {
+			  flex: 1 1 auto;
+			}
+			.field_label::after {
+			  content: ":";
+			}
+			.field_label {
+			  color: #888;
+			  white-space: nowrap;
+			  margin-right: 1rem;
+			  flex: 0 1 auto;
+			  display: inline-block;
+			}
+			.ajaxfields_editor_example {
+			  display: flex;
+			  margin: 1rem 0;
+			  border-radius: 6px;
+			  flex-direction: column;
+			  background: #2d2d2d;
+			  color: #ccc;
+			}
+			.field_wrap {
+			  display: flex;
+			  width: 100%;
+			}
+			.fields {
+			  width: 100%;
+			}
+			.editor_title {
+			  color: #888;
+			  font-size: 1rem;
+			}
+			.editor_header {
+			  padding: 0.5rem 1rem;
+			  border-bottom: 2px solid #222;
+			}
+			.editor_body {
+			  padding: 0.5rem 1rem 1rem 1rem;
+			}
+			pre[class*="language-"] {
+			  margin: 0 0 1rem;
+			}
+			
+			.common_doc {
+				font-size: 1rem;
+			}
+			code {
+			  background: #eee;
+			  padding-left: 0.25em;
+			  padding-right: 0.25em;
+			  border-radius: 4px;
+			}
+			.common_doc h4 {
+			  font-size: 1.125rem;
+			  font-weight: 600;
+			}
+			hr {
+			  margin: 1.5rem 0;
+			}
+			h2 {
+			  margin-bottom: 1rem;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="main">
+			<div class="header">
+				<div class="container">
+					<div class="title-bar">
+						<div class="logo font-pathway">ajaxfields.js</div>
+						<div class="subtitle" data-i18n-key="subtitle">client-server communication goes brrrr</div>
+					</div>
+				</div>
+				<hr>
+			</div>
+		
+			<div class="mid_part">
+				<div class="section">
+					<div class="container">
+						<h2>Overview</h2>
+						<p><strong>Ajaxfields</strong> is a simple Javascript plugin that allows you to turn basic DOM elements into editable input fields.</p>
+						<p>Initialized fields are activated by a mouse click. The entered value is then sent through an ajax-request and upon its completion the displayed value updates accordingly.</p>
+						<p>Here's how it looks in practice:</p>
+						<div class="ajaxfields_editor_example" data-ajaxfield-group data-id="1" data-af-url="mock_response.json">
+							<div class="editor_header">
+								<div class="editor_title"><span data-i18n-key="editor_title">Editable user card example</span></div>
+							</div>
+							<div class="editor_body">
+								<div class="portrait">
+									
+								</div>
+								<div class="fields" >
+									<div class="field_wrap">
+										<div class="field_label" data-i18n-key="first_name">First name</div>
+										<div class="field"><div class="field_val_1" data-ajaxfield>John</div></div>
+									</div>
+									<div class="field_wrap">
+										<div class="field_label" data-i18n-key="last_name">Last name</div>
+										<div class="field"><div class="field_val_2" data-ajaxfield>Doe</div></div>
+									</div>
+									<div class="field_wrap">
+										<div class="field_label" data-i18n-key="dob">Date of birth</div>
+										<div class="field"><div class="field_val_3" data-ajaxfield data-af-type="d">1994-10-10</div></div>
+									</div>
+									<div class="field_wrap">
+										<div class="field_label" data-i18n-key="bio">Bio</div>
+										<div class="field"><div class="field_val_4" data-ajaxfield data-af-type="ta">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit tellus et pulvinar gravida. In iaculis arcu ante, vel molestie justo eleifend non. Donec semper lorem ac metus scelerisque dapibus. Fusce pretium ipsum in orci dapibus, quis molestie tortor aliquet. Cras ante odio, tempus id tortor eget, ullamcorper tincidunt neque. Aenean interdum sit amet eros vel elementum. Integer vitae lacinia arcu.</div></div>
+									</div>
+									<div class="field_wrap">
+										<div class="field_label" data-i18n-key="blood_type">Blood type</div>
+										<div class="field"><div class="field_val_5" data-ajaxfield data-af-type="s" data-af-options="get_blood_types()">B+</div></div>
+									</div>
+									<div class="field_wrap">
+										<div class="field_label" data-i18n-key="password">Password</div>
+										<div class="field"><div class="field_val_6" data-ajaxfield data-af-type="p">•••••••••••••</div></div>
+									</div>
+									<div class="field_wrap">
+										<div class="field_label" data-i18n-key="admin">Admin</div>
+										<div class="field"><div class="field_val_7" data-ajaxfield data-af-type="tog" data-af-toggle-active="1"></div></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<p>Ajax-request is sent whenever the currently active field loses focus or the Enter key is pressed.</p>
+						
+						<hr>
+					</div>
+				</div>
+				
+				<div class="section">
+					<div class="container">
+						<h2>Requirements</h2>
+						<p>
+							<ul><li>jQuery</li></ul>
+						</p>
+						<hr>
+					</div>
+				</div>
+				
+				<div class="section">
+					<div class="container">
+						<h2>Usage</h2>
+						<p>Include the script</p>
+						<pre><code class="language-markup">&lt;script src="/path/to/ajaxfields.js"&gt;&lt;/script&gt;</code></pre>
+						<p>Prepare an element</p>
+						<pre><code class="language-markup">&lt;div class="foo"&gt;bar&lt;/div&gt;</code></pre>
+						<p>Initialize ajaxfields programatically</p>
+						<pre><code class="language-javascript">let foo = new Ajaxfields.field('.foo', {
+	//options
+});</code></pre>
+						<p>Or via data-attributes</p>
+						<pre><code class="language-markup">&lt;div class="foo" data-ajaxfield&gt;bar&lt;/div&gt;</code></pre>
+						<hr>
+					</div>
+				</div>
+				
+							
+				<div class="section">
+					<div class="container">
+						<h2>Options</h2>
+						
+						<div class="common_doc">
+							
+							<h4>type <code>String</code> <code>"text"</code></h4>
+							<p>
+								Defines the type of a field. <code>Ajaxfields</code> supports several:
+								
+								<table class="table table-bordered">
+									<thead>
+										<tr>
+											<th scope="col">Type</th>
+											<th scope="col">Accepted aliases</th>
+											<th scope="col">Description</th>
+										</tr>
+									</thead>
+									<tbody>
+									
+										<tr>
+											<th>Text</th>
+											<td>"text", "t"</td>
+											<td>Creates an <code>&lt;input type="text"/&gt;</code> element on click</td>
+										</tr>
+										
+										<tr>
+											<th>Textarea</th>
+											<td>"textarea", "ta"</td>
+											<td>Creates a <code>&lt;textarea/&gt;</code> element on click.</td>
+										</tr>
+										
+										<tr>
+											<th>Password</th>
+											<td>"password", "p"</td>
+											<td>Creates an <code>&lt;input type="password"/&gt;</code> element on click. Also hides the text-value of a field in un-activated state (assuming no one in their right mind would store, let alone send, passwords in plain-text).</td>
+										</tr>
+										
+										<tr>
+											<th>Select</th>
+											<td>"select", "s"</td>
+											<td>Creates a <code>&lt;select/&gt;</code> element on click. Expects available options to be provided in <code>options</code> property.</td>
+										</tr>
+										
+										<tr>
+											<th>Date</th>
+											<td>"date", "d"</td>
+											<td>Creates an <code>&lt;input type="date"/&gt;</code> element on click.</td>
+										</tr>
+										
+										<tr>
+											<th>Datetime</th>
+											<td>"datetime", "dt"</td>
+											<td>Creates an <code>&lt;input type="datetime-local"/&gt;</code> element on click.</td>
+										</tr>
+										
+										<tr>
+											<th>Time</th>
+											<td>"time"</td>
+											<td>Creates an <code>&lt;input type="time"/&gt;</code> element on click.</td>
+										</tr>
+										
+										<tr>
+											<th>Toggle</th>
+											<td>"toggle", "tog"</td>
+											<td>Creates a custom <code>&lt;div class="ajaxfield_toggle"/&gt;</code> element, that toggles the value between "0" and "1" on click.</td>
+										</tr>
+										
+									</tbody>
+								</table>
+								
+							</p>
+						
+							<h4>url <code>String</code></h4>
+							<p>
+								Absolute URL or a relative path. Acts as the "url" parameter for ajax-request.
+							</p>
+
+							<h4>method <code>String</code> <code>"post"</code></h4>
+							<p>
+								Acts as the "method" parameter for ajax-request.
+							</p>
+
+							<h4>props <code>Object</code></h4>
+							<p>
+								Additional custom properties to be sent alongside with a changed value.
+							</p>
+
+							<h4>options <code>Array|Function|Promise</code></h4>
+							<p>
+								Specifies a set of available options for a "Select" field. It could be just a predefined array, but you can also set it up to fetch options from a server (making sure the set is accurate and up-to-date each time) by passing a "thenable" Promise, if you're feeling fancy. 
+							</p>
+
+							<h4>updateFromResponse <code>Boolean</code> <code>true</code></h4>
+							<p>
+								Whether <code>Ajaxfields</code> should update the value on display from a json-response upon completion or to set the one a user entered on the client-side. The former option is a more certain way to ensure accurate communication. Even if you're not planing on sanitizing the input (ew), there are still ways the value may be altered between being sent and returned back. That way, after updating the value in your DB, you can just send back the current state as-is (sanitized, trimmed, truncated, whatever) and be sure the value on the client-side reflects it accurately.
+							</p>
+							
+							<h4>checkResponseStatus <code>Boolean</code> <code>true</code></h4>
+							<p>
+								Whether <code>Ajaxfields</code> should check a suppositive "status" of a response. If such "status" returns as <code>false</code> the field recognizes the operation as failed and doesn't update the displayed value.
+							</p>
+							
+							<h4>responseStatusCheckFunction <code>Function(response, ajaxfield)</code></h4>
+							<p>
+								Defines a custom function for checking a suppositive "status" of a response. The function must return a boolean value and takes the returned response as its first argument and the field instance as the second one.
+							</p>
+							
+							<h4>responseValueKey <code>String</code> <code>"val"</code></h4>
+							<p>
+								Specifies a name of the "updated value" key in a returned response. Doesn't do anything unless <code>updateFromResponse</code> is set to <code>true</code>. If the specified key cannot be located the field falls back on updating the value directly from user input.
+							</p>
+
+							<h4>responseStatusKey <code>String</code> <code>"status"</code></h4>
+							<p>
+								Specifies a name of the "operation status" key in a returned response. Doesn't do anything unless <code>checkResponseStatus</code> is set to <code>true</code>. Considers the absence of such key in the returned response equivalent to it being set to <code>false</code>.
+							</p>
+
+							<h4>groupSelector <code>Selector</code> <code>"[data-ajaxfield-group]"</code></h4>
+							<p>
+								Defines a selector for a "group" — an ancestor element of a current field that groups multiple fields together and assigns them common properties such a common id of a corresponding row in your DB table (in case the fields themselves correspond to different columns of it for example). If such element exists, <code>Ajaxfields</code> will attempt to get its id and send it along with a changed value.
+							</p>
+
+							<h4>group <code>Selector|jQuery-object|DOM-object</code></h4>
+							<p>
+								Sets a "group" element directly.
+							</p>
+
+							<h4>id <code>String</code> <code>"id"</code></h4>
+							<p>
+								A shortcut for specifying an arbitrary "id" of a field to be sent alongside with a changed value. Equivalent to specifying it in <code>props</code>. 
+							</p>
+
+							<h4>idKey <code>String</code> <code>"id"</code></h4>
+							<p>
+								Specifies the name of a key for the above-mentioned "id" property.
+							</p>
+
+							<h4>fieldname <code>String</code></h4>
+							<p>
+								A shortcut for specifying an arbitrary "name" of a field to be sent alongside with a changed value. Equivalent to specifying it in <code>props</code>. 
+							</p>
+
+							<h4>fieldnameKey <code>String</code> <code>"fieldname"</code></h4>
+							<p>
+								Specifies the name of a key for the above-mentioned "fieldname" property.
+							</p>
+							
+							<h4>valueKey <code>String</code> <code>"val"</code></h4>
+							<p>
+								Specifies a name of the "changed value" key in ajax-request.
+							</p>
+							
+							<h4>absolutePositioning <code>Boolean</code> <code>true</code></h4>
+							<p>
+								Whether an automatically created input element should be positioned "absolutely" or "relatively" within the field container.
+							</p>
+							
+							<h4>onInit <code>Function(ajaxfield)</code></h4>
+							<p>
+								Fires when the field is initialized. 
+							</p>
+							
+							<h4>onReady <code>Function(ajaxfield)</code></h4>
+							<p>
+								Fires when the field returns to a "ready" state.
+							</p>
+							
+							<h4>onSuccess <code>Function(ajaxfield, response, ajaxdata)</code></h4>
+							<p>
+								Fires when the field is successfully updated.
+							</p>
+							
+							<h4>onError <code>Function(ajaxfield, response, ajaxdata)</code></h4>
+							<p>
+								Fires when the field fails to update.
+							</p>
+							
+							<h4>onComplete <code>Function(ajaxfield, response, ajaxdata)</code></h4>
+							<p>
+								Fires straight after <code>onSuccess</code> or <code>onError</code> independently from the result.
+							</p>
+						</div>
+						
+						<hr>
+					</div>
+				</div>
+				
+				<div class="section">
+					<div class="container">
+						<h2>Methods</h2>
+						<div class="common_doc">
+						
+							<h4>getInstanceId()</h4>
+							<p>
+								Returns an id of the field instance. Id is assigned automatically.
+							</p>
+							
+							<h4>updateValue(value)</h4>
+							<p>
+								Updates the field with a given value.
+							</p>
+							
+							<h4>getObject()</h4>
+							<p>
+								Returns an element (jQuery object) associated with the field.
+							</p>
+							
+							<h4>getOptions()</h4>
+							<p>
+								Returns a "thenable" Promise that resolves with an array of options provided for a given "Select" field.
+							</p>
+						</div>
+						<hr>
+					</div>
+				</div>
+				
+				<div class="section">
+					<div class="container">
+						<h2>Global methods</h2>
+						<div class="common_doc">
+							<h4>setBaseURL(url)</h4>
+							<p>
+								Sets the global baseURL. If a field has a relative path defined as its <code>url</code> it will be pre-pended with the global baseURL to form a complete url string. The default value is whatever <code>window.location.origin</code> returns.
+							</p>
+
+							<h4>setIdKey(key)</h4>
+							<p>
+								Specifies the default <code>idKey</code> property globally.
+							</p>
+							
+							<h4>setFieldnameKey(key)</h4>
+							<p>
+								Specifies the default <code>fieldnameKey</code> property globally.
+							</p>
+							
+							<h4>setValueKey(key)</h4>
+							<p>
+								Specifies the default <code>valueKey</code> property globally.
+							</p>
+							
+							<h4>get(id)</h4>
+							<p>
+								Returns ajaxfield object with a given id.
+							</p>
+							
+						</div>
+						<hr>
+					</div>
+				</div>
+				
+				<div class="section">
+					<div class="container">
+						<h2>Data-attributes</h2>
+						<p>
+							You can initialize a field by setting <code>data-ajaxfield</code> attribute. Field options are provided by supplying further data-attributes with <code>af-*</code> prefix like so:
+						</p>
+						<pre><code class="language-markup">&lt;div data-ajaxfield data-af-type="s" data-af-fieldname="foo" data-af-options="['bar', 'baz']"&gt;bar&lt;/div&gt;</code></pre>
+						<p>
+							By having an ancestor element with <code>data-ajaxfield-group</code> attribute you can apply the same set of options to multiple fields:
+						</p>
+<pre><code class="language-markup">&lt;div data-ajaxfield-group data-af-url="some/common/url"&gt;
+	&lt;div data-ajaxfield data-af-type="s" data-af-fieldname="foo_1" data-af-options="['bar', 'baz']"&gt;bar&lt;/div&gt;
+	&lt;div data-ajaxfield data-af-type="t" data-af-fieldname="foo_2"&gt;qux&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+					</div>
+				</div>
+				
+			</div>
+			
+			<div class="footer">
+				<div class="container">
+					<div class="author">
+						ajaxfields.js
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+	<script src='../dist/ajaxfields.js'></script>
+	
+	<script>
+		
+		Ajaxfields.setBaseURL('https://themobledqueen.github.io/ajaxfields.js');
+		
+		let blood_types = [
+			'O-',
+			'O+',
+			'A-',
+			'A+',
+			'B-',
+			'B+',
+			'AB-',
+			'AB+',
+		];
+		
+		function get_blood_types(){
+			return new Promise(function(resolve, reject) {
+				setTimeout(() => {
+					resolve(blood_types);
+				}, 250);
+			});
+		}
+		
+		
+		//console.log(ajaxfield_example_1);
+	
+		
+	
+	</script>
+	
+</html>
