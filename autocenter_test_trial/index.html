@@ -1,0 +1,856 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title> Автоцентр </title>
+		<script src="assets/js/jquery-3.6.0.min.js"></script>
+
+		<script src="assets/js/main.js"></script>
+
+        <link href="assets/font/ArialNova/style.css" rel="stylesheet">
+        <link href="assets/css/main.css" rel="stylesheet">
+
+        <script src="assets/js/carousel.js"></script>
+        <link href="assets/css/carousel.css" rel="stylesheet">
+
+        <script src="assets/js/custom-select.js"></script>
+        <link href="assets/css/custom-select.css?1" rel="stylesheet">
+    </head>
+
+	<body>
+	
+		<div class="main_wrap">
+		
+			<header class="header">
+			    <div class="navbar-blank"></div>
+				<nav class="navbar">
+					<div class="container container-fluid-right">
+						<div class="navbar-main">
+                            <a class="navbar-brand" href="#">
+                                <div class="brand-logo-wrap">
+                                    <img class="brand-logo md-only img-contain" src="assets/image/logo.png"/>
+                                    <img class="brand-logo md-none img-contain" src="assets/image/logo_sm.png"/>
+                                </div>
+                            </a>
+
+                            <ul class="main-nav-list">
+                                <li class="nav-dropdown">
+                                    <a href="#" class="link-btn">Услуги</a>
+                                    <div class="dropdown">
+                                        <ul class="dropdown-items">
+                                            <li><a href="#">Ремонт автомобиля</a></li>
+                                            <li><a href="#">Плановое ТО</a></li>
+                                            <li><a href="#">Диагностика и ремонт</a></li>
+                                            <li><a href="#">Чип тюнинг</a></li>
+                                        </ul>
+
+                                    </div>
+                                </li>
+                                <li><a href="#" class="link-btn">О компании</a></li>
+                                <li><a href="#" class="link-btn">Гарантии</a></li>
+                                <li><a href="#" class="link-btn">Новости</a></li>
+                                <li><a href="#" class="link-btn">Акции</a></li>
+                                <li><a href="#" class="link-btn">Контакты</a></li>
+                            </ul>
+
+                        </div>
+                        <div class="navbar-btns">
+                            <div class="navbar-offcanvas-toggle-btn-wrap">
+                                <button class="navbar-offcanvas-toggle-btn"></button>
+                            </div>
+
+                            <div class="apply-for-service-btn-wrap">
+                                <button class="apply-for-service-btn btn btn-accent">
+                                    <div class="apply-for-service-btn-inner">Запись на сервис</div>
+                                </button>
+                            </div>
+                        </div>
+
+
+					</div>
+				</nav>
+
+				<div class="application-offcanvas offcanvas offcanvas-side" id="application-offcanvas">
+                    <div class="application-offcanvas-inner-wrap offcanvas-inner-wrap offcanvas-side-inner-wrap">
+                        <div class="offcanvas-side-close-btn-wrap">
+                            <div class="offcanvas-close-btn offcanvas-side-close-btn"><i class="icon times"></i></div>
+                        </div>
+                        <div class="application-offcanvas-inner offcanvas-inner offcanvas-side-inner">
+                            <form class="gen-form" autocomplete="off">
+                                <h4 class="gen-form-header">Запись на сервис</h4>
+                                <div class="gen-form-controls">
+                                    <div class="form-control-wrap mb-1">
+                                        <input type="text" required class="form-control" id="application-form-name" placeholder="">
+                                        <label for="application-form-name">Ваше имя</label>
+                                    </div>
+                                    <div class="form-control-wrap mb-1">
+                                        <input type="text" required class="form-control" id="application-form-phone" placeholder="">
+                                        <label for="application-form-phone">Контактный телефон</label>
+                                    </div>
+                                    <div class="form-control-wrap mb-1">
+                                        <select required class="form-control select-native" id="application-form-car-make" placeholder="">
+                                            <option disabled selected value hidden></option>
+                                            <option value="1">Volvo</option>
+                                            <option value="2">BMW</option>
+                                            <option value="3">AUDI</option>
+                                            <option value="4">Volkswagen</option>
+                                            <option value="5">Skoda</option>
+                                            <option value="0">Другой</option>
+                                        </select>
+                                        <label for="application-form-car-make">Марка автомобиля</label>
+                                    </div>
+                                    <div class="form-control-wrap">
+                                        <textarea class="form-control" id="application-form-comment" style="height: 100px" placeholder=""></textarea>
+                                        <label for="application-form-comment">Краткое описание проблемы</label>
+                                    </div>
+                                </div>
+
+                                <div class="gen-form-footer">
+                                    <div class="personal-data-processing-agreement text-2 label-secondary">
+                                        Нажимая кнопку «Отправить заявку» вы даете согласие на <a class="personal-data-processing-agreement-link" href="#">Обработку персональных данных</a>
+                                    </div>
+                                    <div class="form-send-btn-wrap">
+                                        <button class="form-send-btn btn btn-accent btn-lg">Отправить заявку <i class="icon caret-right"></i></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+				</div>
+
+				<div class="feedback-offcanvas offcanvas offcanvas-side" id="feedback-offcanvas">
+                    <div class="feedback-offcanvas-inner-wrap offcanvas-inner-wrap offcanvas-side-inner-wrap">
+                        <div class="offcanvas-side-close-btn-wrap">
+                            <div class="offcanvas-close-btn offcanvas-side-close-btn"><i class="icon times"></i></div>
+                        </div>
+                        <div class="feedback-offcanvas-inner offcanvas-inner offcanvas-side-inner">
+                            <form class="gen-form" autocomplete="off">
+                                <h4 class="gen-form-header">Перезвоним в течении часа</h4>
+                                <div class="gen-form-controls">
+                                    <div class="form-control-wrap mb-1">
+                                        <input type="text" required class="form-control" id="application-form-name" placeholder="">
+                                        <label for="application-form-name">Ваше имя</label>
+                                    </div>
+                                    <div class="form-control-wrap mb-1">
+                                        <input type="text" required class="form-control" id="application-form-phone" placeholder="">
+                                        <label for="application-form-phone">Контактный телефон</label>
+                                    </div>
+                                    <div class="form-control-wrap">
+                                        <textarea class="form-control" id="application-form-comment" style="height: 100px" placeholder=""></textarea>
+                                        <label for="application-form-comment">Комментарий</label>
+                                    </div>
+                                </div>
+
+                                <div class="gen-form-footer">
+                                    <div class="personal-data-processing-agreement text-2 label-secondary">
+                                        Нажимая кнопку «Отправить заявку» вы даете согласие на <a class="personal-data-processing-agreement-link" href="#">Обработку персональных данных</a>
+                                    </div>
+                                    <div class="form-send-btn-wrap">
+                                        <button class="form-send-btn btn btn-accent btn-lg">Отправить заявку <i class="icon caret-right"></i></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+				</div>
+
+				<div class="main-offcanvas offcanvas" id="main-offcanvas">
+                    <div class="main-offcanvas-inner-wrap offcanvas-inner-wrap">
+                        <div class="main-offcanvas-inner offcanvas-inner">
+                            <div class="container h-100">
+                                <div class="main-offcanvas-split">
+
+                                    <div class="main-offcanvas-alt-nav-wrap lg-none">
+                                        <ul class="main-nav-list-alt">
+                                            <li class="nav-dropdown">
+                                                <a href="#" class="link-btn">Услуги</a>
+                                                <div class="dropdown">
+                                                    <ul class="dropdown-items">
+                                                        <li><a href="#">Ремонт автомобиля</a></li>
+                                                        <li><a href="#">Плановое ТО</a></li>
+                                                        <li><a href="#">Диагностика и ремонт</a></li>
+                                                        <li><a href="#">Чип тюнинг</a></li>
+                                                    </ul>
+
+                                                </div>
+                                            </li>
+                                            <li><a href="#" class="link-btn">О компании</a></li>
+                                            <li><a href="#" class="link-btn">Гарантии</a></li>
+                                            <li><a href="#" class="link-btn">Новости</a></li>
+                                            <li><a href="#" class="link-btn">Акции</a></li>
+                                            <li><a href="#" class="link-btn">Контакты</a></li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="main-offcanvas-left-top">
+                                        <div class="main-offcanvas-phone-wrap mb-2">
+                                            <h4 class="main-offcanvas-phone text-accent"><div class="main-offcanvas-phone-text">+7 (999) 123-45-67</div></h4>
+                                        </div>
+                                        <div class="main-offcanvas-mail-link-wrap mb-2">
+                                            <a class="main-offcanvas-mail-link mail-link label-primary" href="mailto:info@example.ru">info@example.ru</a>
+                                        </div>
+                                        <div class="main-offcanvas-schedule">
+                                            <div class="text-1 label-secondary">Работаем для вас:<br>Ежедневно с 9:00 до 21:00</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="main-offcanvas-right-top">
+                                        <div class="main-offcanvas-right-menu">
+                                            <h5 class="main-offcanvas-menu-header label-secondary"><div class="main-offcanvas-menu-header-text">Автоцентры</div></h5>
+
+                                            <ul class="main-offcanvas-right-menu-items">
+                                                <li><a class="underlined" href="#">Автосервис VOLVO</a></li>
+                                                <li><a class="underlined" href="#">Автосервис Land Rover</a></li>
+                                                <li><a class="underlined" href="#">Автосервис VAG</a></li>
+                                                <li><a class="underlined" href="#">Автосервис BMW</a></li>
+                                                <li><a class="underlined" href="#">Автосервис Mercedes</a></li>
+                                                <li><a class="underlined" href="#">Кузовной ремонт и детейлинг</a></li>
+                                            </ul>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="main-offcanvas-left-mid">
+                                        <div class="main-offcanvas-address-blocks">
+                                            <div class="main-offcanvas-address-block">
+                                                <div class="main-offcanvas-address-block-header text-3">Адрес автоцентра:</div>
+                                                <div class="main-offcanvas-address-block-text label-secondary">Екатеринбург, ул. Московский тракт 7 км, 2<br>+7 (999) 123-45-67</div>
+                                            </div>
+                                            <div class="main-offcanvas-address-block">
+                                                <div class="main-offcanvas-address-block-header text-3">Центр кузовного ремонта:</div>
+                                                <div class="main-offcanvas-address-block-text label-secondary">Екатеринбург, ул. Московский тракт 7 км, 2<br>+7 (999) 123-45-677</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="main-offcanvas-right-mid">
+                                        <div class="main-offcanvas-user-area-btn-wrap">
+                                            <a href="#" class="main-offcanvas-user-area-btn h5 label-primary d-table"><span class="main-offcanvas-user-area-btn-text">Личный кабинет</span></a>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="main-offcanvas-left-bottom">
+                                        <div class="main-offcanvas-social-media-btns">
+                                            <a href="#" class="main-offcanvas-social-media-btn circle-btn circle-btn-lg circle-outline-btn"><i class="icon brand-vk"></i></a>
+                                            <a href="#" class="main-offcanvas-social-media-btn circle-btn circle-btn-lg circle-outline-btn"><i class="icon brand-ig"></i></a>
+                                            <a href="#" class="main-offcanvas-social-media-btn circle-btn circle-btn-lg circle-outline-btn"><i class="icon brand-tw"></i></a>
+                                            <a href="#" class="main-offcanvas-social-media-btn circle-btn circle-btn-lg circle-outline-btn"><i class="icon brand-yt"></i></a>
+                                        </div>
+                                    </div>
+
+                                    <div class="main-offcanvas-right-bottom">
+
+                                        <div class="main-offcanvas-privacy-policy-wrap">
+                                            <a href="#" class="main-offcanvas-privacy-policy">Условия конфиденциальности</a>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+			</header>
+
+			<section>
+			    <div class="main-screen bg-quaternary">
+			        <div class="container-fluid-right-lg">
+
+                        <div class="main-screen-split">
+                            <div class="container-not-lg">
+                                <div class="main-screen-left">
+                                    <div class="main-screen-left-header">
+                                        <h2 class="text-white">Специализированный Автосервис</h2>
+                                        <h2 class="text-accent">+7 (999) 123-45-67</h2>
+                                    </div>
+
+                                    <div class="main-screen-left-body">
+                                        <div class="main-screen-left-label-group">
+                                            <div class="label-secondary">Работаем для вас:</div>
+                                            <div class="label-tertiary">Ежедневно с 9:00 до 21:00</div>
+                                        </div>
+                                        <div class="main-screen-left-label-group">
+                                            <div class="label-secondary">По адресу:</div>
+                                            <div class="label-tertiary">Екатеринбург, ул. Московский тракт 7 км, 2</div>
+                                        </div>
+
+                                        <a class="btn btn-lg btn-accent goto-services-btn" href="#services-section">Смотреть услуги <i class="icon arrow-down"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="main-screen-right">
+                                <div class="main-screen-slider generic-slider">
+                                    <div class="generic-slider-bg">
+                                        <div class="generic-slider-items">
+                                            <div class="generic-slider-item"><img src="assets/image/main_slider/1.png"></div>
+                                            <div class="generic-slider-item"><img src="assets/image/main_slider/2.png"></div>
+                                            <div class="generic-slider-item"><img src="assets/image/main_slider/3.png"></div>
+                                        </div>
+                                    </div>
+                                        <div class="generic-slider-controls-wrap">
+                                            <div class="container-not-lg">
+                                                <div class="generic-slider-controls">
+                                                    <div class="generic-slider-btns">
+                                                        <button class="generic-slider-control-prev circle-btn hover-to-white circle-btn-lg"><i class="icon arrow-left"></i></button>
+                                                        <button class="generic-slider-control-next circle-btn hover-to-white circle-btn-lg"><i class="icon arrow-right"></i></button>
+                                                    </div>
+
+                                                    <div class="generic-slider-counter pseudo-gutter-right-lg">
+                                                        <h4 class="text-white">
+                                                            <span class="generic-slider-counter-current">1</span>/<span class="generic-slider-counter-total">3</span>
+                                                        </h4>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+			        </div>
+
+			    </div>
+			</section>
+
+			<section>
+			    <div class="advantages-statement">
+			        <div class="container">
+                        <hr class="lg-only">
+                        <div class="text-3 advantages-statement-header">Главное преимущество компании</div>
+			            <div class="container-split">
+                            <div class="container-split-side">
+			                    <h1 class="text-accent">Работаем<br>с 2012 года</h1>
+                            </div>
+                            <div class="container-split-side">
+                                <p class="lead">
+                                    Вашим автомобилем будут заниматься люди с большим опытом, полученным за многие годы и прошедшие множество обучений.
+                                </p>
+                                <p class="lead">
+                                    Сотрудники обладают огромным багажом знаний, применяемых на практике.
+                                </p>
+                            </div>
+			            </div>
+                    </div>
+			    </div>
+			</section>
+
+			<section>
+			    <div class="services-section" id="services-section">
+                    <div class="container">
+                        <h2 class="services-header">Услуги автосервиса</h2>
+                        <div class="service-cards">
+
+                            <div class="service-cards-row row">
+                                <div class="col">
+                                    <a href="#" class="service-card">
+                                        <div class="service-card-img-wrap">
+                                            <img class="service-card-img img-fit" src="assets/image/services/1.png">
+                                        </div>
+                                        <div class="service-card-footer">
+                                            <div class="service-card-text">
+                                                <h5 class="service-card-text-header">Ремонт автомобиля</h5>
+                                                <h5 class="service-card-label-secondary">01</h5>
+                                            </div>
+                                            <div class="circle-btn"><i class="icon caret-right"></i></div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col">
+                                    <a href="#" class="service-card">
+                                        <div class="service-card-img-wrap">
+                                            <img class="service-card-img img-fit" src="assets/image/services/2.png">
+                                        </div>
+                                        <div class="service-card-footer">
+                                            <div class="service-card-text">
+                                                <h5 class="service-card-text-header">Плановое ТО</h5>
+                                                <h5 class="service-card-label-secondary">02</h5>
+                                            </div>
+                                            <div class="circle-btn"><i class="icon caret-right"></i></div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="service-cards-row row">
+                                <div class="col">
+                                    <a href="#" class="service-card">
+                                        <div class="service-card-img-wrap">
+                                            <img class="service-card-img img-fit" src="assets/image/services/3.png">
+                                        </div>
+                                        <div class="service-card-footer">
+                                            <div class="service-card-text">
+                                                <h5 class="service-card-text-header">Диагностика и ремонт</h5>
+                                                <h5 class="service-card-label-secondary">03</h5>
+                                            </div>
+                                            <div class="circle-btn"><i class="icon caret-right"></i></div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col">
+                                    <a href="#" class="service-card">
+                                        <div class="service-card-img-wrap">
+                                            <img class="service-card-img img-fit" src="assets/image/services/4.png">
+                                        </div>
+                                        <div class="service-card-footer">
+                                            <div class="service-card-text">
+                                                <h5 class="service-card-text-header">Чип тюнинг</h5>
+                                                <h5 class="service-card-label-secondary">04</h5>
+                                            </div>
+                                            <div class="circle-btn"><i class="icon caret-right"></i></div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+			    </div>
+			</section>
+
+			<section>
+			    <div class="posits-section">
+			        <div class="container">
+                        <div class="container-split">
+                            <div class="container-split-side">
+                                <div class="posits-header lead">
+                                    Обратившись к нам, в автоцентр, вы окажетесь в надёжных руках специалистов послегарантийного ремонта и технического обслуживания автомобилей.
+                                </div>
+                                 <div class="posits-statement text-1 ">
+                                     Чтобы автомобиль всегда оставался в отличной форме, необходимо выполнять регулярное ТО по программе рекомендованной производителем.
+                                 </div>
+                                 <div class="posits-statement text-1">
+                                     Подразделение нашей компании СЕРТИФИЦИРОВАННО — это позволяет производить обслуживание вашего автомобиля С СОХРАНЕНИЕМ ГАРАНТИИ.
+                                 </div>
+                            </div>
+                            <div class="container-split-side">
+                                <div class="posit-items">
+
+                                    <div class="posit-item">
+                                        <div class="posit-item-icon-wrap"><img src="assets/image/icons/ok-shield.svg" class="posit-item-icon"/></div>
+                                        <h5><span class="posit-item-text">Гарантия работы 1&nbspгод</span></h5>
+                                    </div>
+
+                                    <div class="posit-item">
+                                        <div class="posit-item-icon-wrap"><img src="assets/image/icons/user.svg" class="posit-item-icon"/></div>
+                                        <h5><span class="posit-item-text">Квалифицированные сотрудники</span></h5>
+                                    </div>
+
+                                    <div class="posit-item">
+                                        <div class="posit-item-icon-wrap"><img src="assets/image/icons/coffee.svg" class="posit-item-icon"/></div>
+                                        <h5><span class="posit-item-text">Комфортные зоны ожидания</span></h5>
+                                    </div>
+
+                                    <div class="posit-item">
+                                        <div class="posit-item-icon-wrap"><img src="assets/image/icons/car-cog.svg" class="posit-item-icon"/></div>
+                                        <h5><span class="posit-item-text">Современное оборудование</span></h5>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+			    </div>
+			</section>
+
+			<section>
+			    <div class="logo-section">
+                    <div class="container">
+                        <hr class="lg-only">
+                        <div class="text-3 label-secondary logo-header">Обслуживаем и ремонтируем</div>
+                    </div>
+                    <div class="logo-carousel-wrap">
+                        <ul class="logo-carousel">
+                            <li class="logo-carousel-item"><img class="logo-carousel-img img-contain" src="assets/image/logo/Volvo.png"/></li>
+                            <li class="logo-carousel-item"><img class="logo-carousel-img img-contain" src="assets/image/logo/Land%20Rover.png"/></li>
+                            <li class="logo-carousel-item"><img class="logo-carousel-img img-contain" src="assets/image/logo/Mercedes.png"/></li>
+                            <li class="logo-carousel-item"><img class="logo-carousel-img img-contain" src="assets/image/logo/BMW.png"/></li>
+                            <li class="logo-carousel-item"><img class="logo-carousel-img img-contain" src="assets/image/logo/Porsche.png"/></li>
+                            <li class="logo-carousel-item"><img class="logo-carousel-img img-contain" src="assets/image/logo/Audi.png"/></li>
+
+                            <li class="logo-carousel-item"><img class="logo-carousel-img img-contain" src="assets/image/logo/Volvo.png"/></li>
+                            <li class="logo-carousel-item"><img class="logo-carousel-img img-contain" src="assets/image/logo/Land%20Rover.png"/></li>
+                            <li class="logo-carousel-item"><img class="logo-carousel-img img-contain" src="assets/image/logo/Mercedes.png"/></li>
+                            <li class="logo-carousel-item"><img class="logo-carousel-img img-contain" src="assets/image/logo/BMW.png"/></li>
+                            <li class="logo-carousel-item"><img class="logo-carousel-img img-contain" src="assets/image/logo/Porsche.png"/></li>
+                            <li class="logo-carousel-item"><img class="logo-carousel-img img-contain" src="assets/image/logo/Audi.png"/></li>
+                        </ul>
+                    </div>
+			    </div>
+			</section>
+
+			<section>
+			    <div class="special-offers-section">
+                    <div class="container">
+                        <h2 class="label-primary special-offers-header">Наши акции</h2>
+
+
+                        <div class="special-offers-slider">
+
+                            <div class="special-offers-slider-items">
+
+                                <div class="special-offer-slide active">
+                                    <div class="special-offer-slide-split">
+                                        <div class="special-offer-img-wrap">
+                                            <img class="special-offer-img img-fit" src="assets/image/special_offers/1.png">
+                                        </div>
+                                        <div class="special-offers-slider-alt-controls-wrap lg-none">
+                                            <div class="special-offers-slider-alt-controls">
+                                                <button class="special-offers-slider-control-prev circle-btn circle-btn-lg circle-btn"><i class="icon arrow-left"></i></button>
+                                                <button class="special-offers-slider-control-next circle-btn circle-btn-lg circle-btn"><i class="icon arrow-right"></i></button>
+                                            </div>
+                                        </div>
+                                        <div class="special-offer-info bg-primary">
+                                            <h3 class="special-offer-header label-primary"><div class="special-offer-header-text">Дарим 1000 бонусов за шиномонтаж и хранение</div></h3>
+                                            <div class="special-offer-date text-1 label-secondary">11 апреля</div>
+                                            <a class="special-offer-link">
+                                                <button class="circle-btn"><i class="icon caret-right"></i></button>
+                                                <div class="label-primary">Подробнее</div>
+                                            </a>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="special-offer-slide">
+                                    <div class="special-offer-slide-split">
+                                        <div class="special-offer-img-wrap">
+                                            <img class="special-offer-img img-fit" src="assets/image/special_offers/2.png">
+                                        </div>
+                                        <div class="special-offers-slider-alt-controls-wrap lg-none">
+                                            <div class="special-offers-slider-alt-controls">
+                                                <button class="special-offers-slider-control-prev circle-btn circle-btn-lg circle-btn"><i class="icon arrow-left"></i></button>
+                                                <button class="special-offers-slider-control-next circle-btn circle-btn-lg circle-btn"><i class="icon arrow-right"></i></button>
+                                            </div>
+                                        </div>
+                                        <div class="special-offer-info bg-primary">
+                                            <h3 class="special-offer-header label-primary"><div class="special-offer-header-text">Специальное предложение для владельцев VOLVO XC 90</div></h3>
+                                            <div class="special-offer-date text-1 label-secondary">18 ноября</div>
+                                            <a class="special-offer-link">
+                                                <button class="circle-btn"><i class="icon caret-right"></i></button>
+                                                <div class="label-primary">Подробнее</div>
+                                            </a>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="special-offers-slider-controls-wrap lg-only">
+                                <div class="special-offers-slider-controls">
+                                    <button class="special-offers-slider-control-prev circle-btn circle-btn-lg circle-outline-btn"><i class="icon arrow-left"></i></button>
+                                    <button class="special-offers-slider-control-next circle-btn circle-btn-lg circle-outline-btn"><i class="icon arrow-right"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+			    </div>
+			</section>
+
+			<section>
+			    <div class="reviews-section bg-quaternary">
+			        <div class="container">
+			            <div class="reviews-section-header-wrap">
+                            <h2 class="reviews-section-header label-tertiary">Отзывы пользователей об Автоцентре</h2>
+                            <div class="avg-rating">
+                                <div class="h1 text-accent avg-rating-value">4.6</div>
+                                <div class="avg-rating-label text-3 label-secondary">Средняя оценка</div>
+                            </div>
+                        </div>
+                        <hr class="reviews-section-separator">
+                        <div class="reviews-slider">
+
+                            <div class="reviews-slider-items">
+
+                                <div class="review-slider-item">
+                                    <div class="review-header">
+                                        <div class="review-user">
+                                            <div class="review-user-profile-pic-wrap">
+                                                <img class="review-user-profile-pic img-fit" src="assets/image/icons/user-circle.svg">
+                                            </div>
+                                            <div class="review-info">
+                                                <div class="h5 label-tertiary review-user-name">butyl1n_i</div>
+                                                <div class="text-2 label-secondary review-date">23 декабря 2020</div>
+                                                <div class="review-rating-stars review-rating-stars-4">
+                                                    <div class="review-rating-star"></div>
+                                                    <div class="review-rating-star"></div>
+                                                    <div class="review-rating-star"></div>
+                                                    <div class="review-rating-star"></div>
+                                                    <div class="review-rating-star"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="review-text-wrap">
+                                            <p class="review-text lead text-white">Решил убить сразу несколько зайцев, и пока гуляли с женой по меге оставил свою Volvo на диагностику в данном центре. Знаю что меняли ранее в другом центре, и что уже нужно было поменять. В этом центре лишнего не насчитали, проблемы нашли. В следующий раз приеду уже за полным ТО.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="review-slider-item">
+                                    <div class="review-header">
+                                        <div class="review-user">
+                                            <div class="review-user-profile-pic-wrap">
+                                                <img class="review-user-profile-pic img-fit" src="assets/image/icons/user-circle.svg">
+                                            </div>
+                                            <div class="review-info">
+                                                <div class="h5 label-tertiary review-user-name">butyl1n_i</div>
+                                                <div class="text-2 label-secondary review-date">23 декабря 2020</div>
+                                                <div class="review-rating-stars review-rating-stars-5">
+                                                    <div class="review-rating-star"></div>
+                                                    <div class="review-rating-star"></div>
+                                                    <div class="review-rating-star"></div>
+                                                    <div class="review-rating-star"></div>
+                                                    <div class="review-rating-star"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="review-text-wrap">
+                                            <p class="review-text lead text-white">Отличный сервис. Спасибо большое менеджеру Александру, помог и разъяснил (грамотно). Самое главное нашел причину и устранил . Не первый раз обращаюсь и пока всем доволен (обращался 01.06.2018г). Немного о самом сервисе. Клиентская зона на твердую 5 . Есть чай и кофе, и пока делают машину, можно занять себя просмотром телевизора. Сама зона просматривается сквозь стекла . Так что можно всегда посмотреть , на какой стадии ремонт! За это я ставлю 5+.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="reviews-slider-controls-wrap">
+                                <div class="reviews-slider-controls">
+                                    <button class="reviews-slider-control-prev circle-btn circle-btn-lg circle-outline-light-btn hover-to-white"><i class="icon arrow-left"></i></button>
+                                    <button class="reviews-slider-control-next circle-btn circle-btn-lg circle-outline-light-btn hover-to-white"><i class="icon arrow-right"></i></button>
+                                </div>
+                            </div>
+                        </div>
+			        </div>
+			    </div>
+			</section>
+
+			<section>
+			    <div class="location-section">
+
+			        <div class="container-lg container-fluid">
+                        <div class="location-group">
+                            <div class="location-group-split">
+                                <div class="location-side">
+                                    <div class="location-side-bg-wrap">
+                                        <div class="location-side-bg">
+                                            <img class="location-side-bg-img img-fit" src="assets/image/location.png"/>
+                                        </div>
+                                    </div>
+                                    <div class="location-side-info-wrap bg-quaternary">
+                                        <div class="location-side-info">
+                                            <div class="location-side-info-piece label-tertiary">Екатеринбург, Московский тракт 7 км, 2<br>Телефон: +7 (999) 123-45-67</div>
+                                            <div class="location-side-info-piece label-tertiary">Cервис: <a class="text-accent" href="mailto:service@example.ru">service@example.ru</a><br>Отдел запасных частей: <a class="text-accent" href="mailto:parts@example.ru">parts@example.ru</a></div>
+                                            <button class="create-route-btn btn btn-lg btn-accent">Построить маршрут <i class="icon caret-right"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="location-map-wrap">
+                                    <div class="location-map-pin-wrap">
+                                        <div class="location-map-pin">
+                                            <img src="assets/image/icons/map-pin.svg" class="location-map-pin-icon"/>
+                                        </div>
+                                    </div>
+                                    <div class="location-map"><iframe src="https://yandex.com/map-widget/v1/-/CCUFbJB3OD" allowfullscreen="false"></iframe></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="location-section-half-bg bg-quaternary"></div>
+			    </div>
+			</section>
+
+			<section>
+			    <div class="consult-section">
+                    <div class="consult-section-bg">
+                        <div class="consult-section-bg-shade"></div>
+                        <div class="consult-section-bg-img-wrap">
+                            <img src="assets/image/consult.png" class="consult-section-bg-img img-fit"/>
+                        </div>
+                    </div>
+
+			        <div class="consult-section-fore">
+                        <div class="container">
+                            <hr>
+                            <div class="consult-section-header text-3 label-tertiary">Получить консультацию</div>
+                            <div class="consult-statement-wrap">
+                                <div class="consult-statement lead text-white">Оставьте заявку, и наш мастер перезвонит вам, произведет предварительную оценку стоимости услуг и запчастей, и подберет удобное время для визита.</div>
+                                <button class="consult-apply-btn btn btn-lg btn-accent">Оставить заявку <i class="icon caret-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+			    </div>
+			</section>
+
+
+			<section>
+			    <div class="mobile-app-section bg-accent">
+                    <div class="container">
+                        <div class="mobile-app-section-elements">
+                            <div class="mobile-app-section-iphone-image-wrap">
+                                <img src="assets/image/iphone.png" class="mobile-app-section-iphone-image img-contain"/>
+                            </div>
+                            <div class="mobile-app-section-statement">
+                                <h5 class="mobile-app-section-statement-header">Скачивайте наше мобильное приложение</h5>
+                                <ul class="mobile-app-section-statement-bullet-list">
+                                    <li class="mobile-app-section-statement-bullet">
+                                        <div class="mobile-app-section-statement-bullet-icon"></div><div class="mobile-app-section-statement-bullet-text text-3">записаться на ремонт</div>
+                                    </li>
+                                    <li class="mobile-app-section-statement-bullet">
+                                        <div class="mobile-app-section-statement-bullet-icon"></div><div class="mobile-app-section-statement-bullet-text text-3">просмотреть историю обслуживания</div>
+                                    </li>
+                                    <li class="mobile-app-section-statement-bullet">
+                                        <div class="mobile-app-section-statement-bullet-icon"></div><div class="mobile-app-section-statement-bullet-text text-3">Получать постоянные акции и бонусы</div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="mobile-app-section-statement-btns">
+                                <button class="app-store-btn mobile-app-section-statement-btn">
+                                    <img src="assets/image/app_store_btn.svg"/>
+                                </button>
+                                <button class="google-play-btn mobile-app-section-statement-btn">
+                                    <img src="assets/image/google_play_btn.svg"/>
+                                </button>
+
+                            </div>
+
+                        </div>
+                    </div>
+			    </div>
+			</section>
+
+		</div>
+		
+		<div class="footer-wrap bg-quaternary">
+			<footer>
+				<div class="container">
+                    <div class="footer-top">
+                        <div class="footer-top-split">
+                            <div class="footer-top-side">
+                                <div class="footer-top-side-info">
+                                    <a class="footer-mail-link mail-link text-accent" href="mailto:info@example.ru">info@example.ru</a>
+                                    <div class="footer-schedule">
+                                        <div class="text-1 label-secondary">Работаем для вас:<br>Ежедневно с 9:00 до 21:00</div>
+                                    </div>
+                                </div>
+                                <div class="footer-btns">
+                                    <button class="feedback-btn btn btn-lg btn-accent">Обратный звонок</button>
+                                    <button class="btn btn-lg btn-accent-outline hover-to-white">Контроль качества</button>
+                                </div>
+                            </div>
+
+                            <div class="footer-top-main">
+                                <div class="footer-nav-wrap">
+                                    <ul class="footer-nav">
+                                        <li><a class="h5" href="#">О компании</a></li>
+                                        <li><a class="h5" href="#">Гарантии</a></li>
+                                        <li><a class="h5" href="#">Новости</a></li>
+                                        <li><a class="h5" href="#">Акции</a></li>
+                                        <li><a class="h5" href="#">Контакты</a></li>
+                                    </ul>
+                                    <div class="footer-user-area-btn-wrap">
+                                        <a href="#" class="footer-user-area-btn">
+                                            <div class="h5 footer-user-area-btn-text">Личный кабинет</div><img src="assets/image/icons/arrow-out.svg" class="footer-user-area-btn-icon"/>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="footer-menu">
+                                    <div class="footer-menu-split">
+                                        <div class="footer-menu-side">
+                                            <h5 class="footer-menu-side-header label-secondary">Автоцентры</h5>
+                                            <hr>
+                                            <ul class="footer-menu-side-items">
+                                                <li><a class="underlined" href="#">Автосервис VOLVO</a></li>
+                                                <li><a class="underlined" href="#">Автосервис Land Rover</a></li>
+                                                <li><a class="underlined" href="#">Автосервис VAG</a></li>
+                                                <li><a class="underlined" href="#">Автосервис BMW</a></li>
+                                                <li><a class="underlined" href="#">Автосервис Mercedes</a></li>
+                                                <li><a class="underlined" href="#">Кузовной ремонт и детейлинг</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="footer-menu-side">
+                                            <h5 class="footer-menu-side-header label-secondary">Услуги</h5>
+                                            <hr>
+                                            <ul class="footer-menu-side-items">
+                                                <li><a class="underlined" href="#">Ремонт автомобиля</a></li>
+                                                <li><a class="underlined" href="#">Плановое ТО</a></li>
+                                                <li><a class="underlined" href="#">Диагностика</a></li>
+                                                <li><a class="underlined" href="#">Кузовной ремонт и детейлинг</a></li>
+                                                <li><a class="underlined" href="#">Чип тюнинг</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="footer-bottom">
+                        <div class="footer-bottom-upper">
+                            <div class="footer-bottom-upper-split">
+                                <div class="footer-bottom-upper-side">
+                                    <div class="footer-social-media-btns">
+                                        <a href="#" class="footer-social-media-btn circle-btn circle-btn-lg circle-outline-light-btn hover-to-white"><i class="icon brand-vk"></i></a>
+                                        <a href="#" class="footer-social-media-btn circle-btn circle-btn-lg circle-outline-light-btn hover-to-white"><i class="icon brand-ig"></i></a>
+                                        <a href="#" class="footer-social-media-btn circle-btn circle-btn-lg circle-outline-light-btn hover-to-white"><i class="icon brand-tw"></i></a>
+                                        <a href="#" class="footer-social-media-btn circle-btn circle-btn-lg circle-outline-light-btn hover-to-white"><i class="icon brand-yt"></i></a>
+                                    </div>
+                                </div>
+                                <div class="footer-bottom-upper-main">
+                                    <div class="footer-contacts">
+                                        <div class="footer-contacts-split">
+                                            <div class="footer-contacts-side">
+                                                <div class="footer-contacts-side-header text-3 text-white">Адрес автоцентра:</div>
+                                                <div class="footer-contacts-text label-secondary">Екатеринбург, ул. Московский тракт 7&nbspкм, 2<br>+7 (999) 123-45-67</div>
+                                            </div>
+                                            <div class="footer-contacts-side">
+                                                <div class="footer-contacts-side-header text-3 text-white">Центр кузовного ремонта:</div>
+                                                <div class="footer-contacts-text label-secondary">Екатеринбург, ул. Московский тракт 7&nbspкм, 2<br>+7 (999) 123-45-677</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr>
+                        <div class="footer-bottom-lower">
+                            <div class="footer-copyright text-2 label-secondary">© 2022 Специализированный автоцентр</div>
+                            <div class="footer-developed-by text-2 label-secondary">Дизайн и разработка — <a href="#" class="text-white">Media Army</a></div>
+                        </div>
+                    </div>
+				</div>
+			</footer>
+		</div>
+
+        <script>
+            $('.gen-form select').each(function(){
+                new CustomSelect.select($(this)[0]);
+            });
+
+            let main_carousel = new Carousel.carousel($('.main-screen-slider .generic-slider-items')[0], {
+                'prevBtn': $('.main-screen-slider .generic-slider-control-prev')[0],
+                'nextBtn': $('.main-screen-slider .generic-slider-control-next')[0],
+                'counter': $('.main-screen-slider .generic-slider-counter-current')[0]
+            });
+
+            let so_carousel = new Carousel.carousel($('.special-offers-slider-items')[0], {
+                'prevBtn': $('.special-offers-slider-control-prev'),
+                'nextBtn': $('.special-offers-slider-control-next')
+            });
+
+            let r_carousel = new Carousel.carousel($('.reviews-slider-items')[0], {
+                'prevBtn': $('.reviews-slider-control-prev')[0],
+                'nextBtn': $('.reviews-slider-control-next')[0]
+            });
+        </script>
+	</body>
+</html>

@@ -1,0 +1,40 @@
+.carousel-wrapper {
+    overflow: hidden;
+    width: 100%;
+    margin: auto;
+}
+
+
+.carousel {
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+.carousel-item {
+    opacity: 0;
+    position: absolute;
+    top:0;
+    width: 100%;
+    z-index: 100;
+    transition: transform var(--default-transition), opacity var(--default-transition), z-index var(--default-transition);
+}
+
+.carousel-item.initial,
+.carousel-item.active {
+    opacity: 1;
+    position: relative;
+    z-index: 2;
+}
+
+.carousel-item.prev,
+.carousel-item.next {
+    z-index: 1;
+}
+
+.carousel-item.prev {
+    transform: translateX(-100%);
+}
+
+.carousel-item.next {
+    transform: translateX(100%);
+}

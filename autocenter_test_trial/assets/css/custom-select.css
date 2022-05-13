@@ -1,0 +1,135 @@
+.select-native,
+.select-custom {
+   position: relative;
+   width: 100%;
+   height: 100%;
+}
+
+.select-custom {
+   position: absolute;
+   top: 0;
+   left: 0;
+   display: none;
+}
+
+@media (hover: hover) {
+    .select-custom {
+        display: block;
+    }
+
+   .select-native:focus + .select-custom {
+       display: none;
+   }
+}
+
+.select {
+    position: relative;
+}
+
+.select-native,
+.select-custom-trigger {
+
+}
+
+.select-native {
+    /*border-color: transparent;*/
+}
+
+.select-custom-trigger {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+
+    border: 1px solid #989898;
+    border-radius: 7px;
+}
+
+.select-custom-trigger:hover {
+    border-color: #2c2c2c;
+}
+
+.select-custom.is-active .select-custom-trigger {
+    border-color: var(--accent-color);
+}
+
+.select-custom.is-active .select-custom-options-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000b;
+    z-index: 1;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+@media (min-width:774px) {
+    .select-custom.is-active .select-custom-options-wrap {
+        position: absolute;
+        width: 100%;
+        display: block;
+        padding: 0;
+        background: transparent;
+        height: auto;
+        top: initial;
+        left: initial;
+    }
+
+}
+
+.select-custom-options {
+    pointer-events: all;
+    position: relative;
+    left: 0;
+    width: 100%;
+    border: 1px solid #6f6f6f;
+    border-radius: 7px;
+    background-color: #fff;
+    box-shadow: var(--shadow);
+    z-index: 1;
+    display: none;
+    overflow: auto;
+    margin-top: 5px;
+}
+
+.select-custom.is-active .select-custom-options {
+    display: block;
+}
+
+
+
+.select-custom-option {
+    padding: 10px 30px;
+    cursor: pointer;
+}
+.select-custom-options > .select-custom-option:first-child {
+    padding-top: 15px;
+}
+.select-custom-options > .select-custom-option:last-child{
+    padding-bottom: 15px;
+}
+
+.select-custom-option.is-hover,
+.select-custom-option:hover {
+    background-color: var(--accent-color);
+}
+
+.select-custom-option:not(:last-of-type)::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-bottom: 1px solid #d3d3d3;
+}
+
+.select-custom-option.is-active::before {
+    content: "✓";
+    position: absolute;
+    left: 0.8rem;
+}
